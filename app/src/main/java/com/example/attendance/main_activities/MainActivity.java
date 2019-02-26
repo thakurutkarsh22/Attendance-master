@@ -295,12 +295,12 @@ public class MainActivity extends AppCompatActivity {
     private void saveAttendance() {
         if (attendanceAdapter != null) {
             ArrayList<AttendanceModel> list = attendanceAdapter.attendanceModels;
-            //This is post attendance
+            //This is post attendance ff
             ArrayList<PostAttendanceModel> postAttendanceModels = new ArrayList<>();
 
             /*for(int i=0;i<list.size();i++)
             {
-                PostAttendanceModel postAttendanceModel = new PostAttendanceModel();
+                PostAttend1 file committed: documentanceModel postAttendanceModel = new PostAttendanceModel();
                 postAttendanceModel.setStudent_id(list.get(i).getStudend_id());
                 postAttendanceModels.get(i).getDateOfAttendance();
                 postAttendanceModels.get(i).getClass_id();
