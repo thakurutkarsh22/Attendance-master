@@ -295,6 +295,7 @@ public class MainActivity extends AppCompatActivity {
     private void saveAttendance() {
         if (attendanceAdapter != null) {
             ArrayList<AttendanceModel> list = attendanceAdapter.attendanceModels;
+            //This is post attendance
             ArrayList<PostAttendanceModel> postAttendanceModels = new ArrayList<>();
 
             /*for(int i=0;i<list.size();i++)
