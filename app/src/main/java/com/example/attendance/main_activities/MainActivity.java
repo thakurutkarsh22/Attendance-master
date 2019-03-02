@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         final TextView pickdate = (TextView) layout.findViewById(R.id.pick_date);
-        pickdate.setText(dateTime.toString("dd/MM/yyyy"));
+        pickdate.setText(dateTime.toString("MM/dd/yyyy"));
         pickdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         // set day of month , month and year value in the edit text
                         dateTime = new DateTime(year, monthOfYear + 1, dayOfMonth, 0, 0);
-                        pickdate.setText(dateTime.toString("dd/MM/yyyy"));
+                        pickdate.setText(dateTime.toString("MM/dd/yyyy"));
 
 
                     }
@@ -224,12 +224,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-                txtDate.setText(dateTime.toString("dd/MM//yyyy"));
+                txtDate.setText(dateTime.toString("dd/MM/yyyy"));
                 pd = new ProgressDialog(MainActivity.this);
                 pd.setMessage("loading");
                 pd.show();
 
-                getAttendance(token, dateTime.toString("dd/MM/yyyy"), classDetail.get_id());
+                getAttendance(token, dateTime.toString("MM/dd/yyyy"), classDetail.get_id());
 
             }
 
@@ -251,7 +251,8 @@ public class MainActivity extends AppCompatActivity {
                         classDetail = list.get(0);
                         txtClass.setText(classDetail.getClassName());
                         pd.dismiss();
-                        getAttendance(token, dateTime.toString("dd/MM/yyyy"), classDetail.get_id());
+
+                        getAttendance(token, dateTime.toString("MM/dd/yyyy"), classDetail.get_id());
                     }
                 } else {
                     Toast.makeText(MainActivity.this, "Class not found", Toast.LENGTH_SHORT).show();
@@ -274,6 +275,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<ArrayList<AttendanceModel>> call, Response<ArrayList<AttendanceModel>> response) {
                 if (response.isSuccessful()) {
                     ArrayList<AttendanceModel> attendanceModel = response.body();
+
                     if (attendanceModel != null) {
                         generateAttendance(attendanceModel);
                         pd.dismiss();
